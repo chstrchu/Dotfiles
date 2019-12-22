@@ -1,0 +1,9 @@
+fzf
+mru
+nerdtree
+surround
+vim-dispatch
+vim-obsession
+vim-projectionist
+vim-test
+vitality

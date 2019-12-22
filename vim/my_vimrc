@@ -1,0 +1,65 @@
+set nocompatible
+syntax on
+filetype plugin indent on
+set hlsearch
+set number
+set relativenumber
+set autoindent
+set showcmd
+set incsearch
+set expandtab
+set ts=2
+set sw=2
+set laststatus=2
+set backspace=indent,eol,start
+au FocusLost * silent! wa
+let mapleader=","
+
+"fuzzy file finder
+set path+=**
+set wildmenu
+
+"tag jumping
+command! MakeTags !ctags -R
+
+"file browsing
+nnoremap <C-n> :NERDTreeToggle<CR>
+syntax on
+
+"Quote all lines in a file
+nnoremap <leader>qls :s%/^\(.*\)$/"\1"/g<CR>
+"No highlights
+nnoremap <C-m> :noh<CR>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
+"Invoke fuzzy file finder
+nnoremap <C-p> :<C-u>FZF<CR>
+
+"Strip trailing whitespace before save on listed filetypes
+autocmd BufWritePre *.rb,*.js,*.yml,*.css,*.j2 %s/\s\+$//e
+
+nnoremap <leader><leader> <C-^>
+nnoremap <leader>m :MRU<CR>
+
+"Share system clipboard
+set clipboard=unnamed
+
+"Use %% as a shortcut for current directory
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+"Remove delay from escaping 
+set noesckeys
+
+"Find file in project drawer
+nnoremap <leader>f :NERDTreeFind<CR>
+
+
+"Shortcut for opening a file in the current directory
+map <leader>e :edit %%
+
+"Load vim-test output into quickfix list
+let test#strategy = "dispatch"

@@ -1,0 +1,9 @@
+set -s escape-time 1
+set -g base-index 1
+set -g prefix C-a
+set-option -g mouse on
+unbind-key C-b
+bind-key C-a send-prefix
+set -g focus-events on
+set -g update-environment "DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY"
+set-environment -g 'SSH_AUTH_SOCK' ~/.ssh/ssh_auth_sock
